@@ -1,6 +1,7 @@
 package com.kpeet.springapp.web;
 
 import java.io.IOException;
+import java.util.Date;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -19,10 +20,11 @@ public class HelloController {
     @RequestMapping(value="/hello.htm")
     public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+    	
+    	 String now = (new Date()).toString();
+         logger.info("Returning hello view with " + now);
 
-        logger.info("Returning hello view");
-
-        return new ModelAndView("hello.jsp");
+         return new ModelAndView("WEB-INF/view/hello.jsp", "now", now);
     }
 
 }
