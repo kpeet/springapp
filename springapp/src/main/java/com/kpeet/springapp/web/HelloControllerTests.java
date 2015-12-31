@@ -11,7 +11,7 @@ public class HelloControllerTests {
 	    public void testHandleRequestView() throws Exception{		
 	        HelloController controller = new HelloController();
 	        ModelAndView modelAndView = controller.handleRequest(null, null);		
-	        assertEquals("WEB-INF/view/hello.jsp", modelAndView.getViewName());
+	        assertEquals("hello", modelAndView.getViewName());
 	        assertNotNull(modelAndView.getModel());
 	        String nowValue = (String) modelAndView.getModel().get("now");
 	        assertNotNull(nowValue);
