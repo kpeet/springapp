@@ -1,6 +1,25 @@
 package com.kpeet.springapp.domain;
 
-public class Location {
+import java.io.Serializable;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="location") 
+public class Location implements Serializable{
+
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	@Id
+    @Column(name = "location_id")
+    @GeneratedValue(strategy = GenerationType.AUTO)
 	private int location_id;
 	private String address;
 	private String street_number;
@@ -11,6 +30,9 @@ public class Location {
 	private double latitude;
 	private double longitude;
 	private int meterPerHour;
+	
+	
+	
 	public int getLocation_id() {
 		return location_id;
 	}
@@ -71,5 +93,12 @@ public class Location {
 	public void setMeterPerHour(int meterPerHour) {
 		this.meterPerHour = meterPerHour;
 	}
+    public String toString() {
+        StringBuffer buffer = new StringBuffer();
+        buffer.append("latitude: " + latitude + ";");
+        buffer.append("longitude: " + longitude);
+        return buffer.toString();
+    }
+
 
 }
