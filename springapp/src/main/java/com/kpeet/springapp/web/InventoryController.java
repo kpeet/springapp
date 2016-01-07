@@ -1,7 +1,6 @@
 package com.kpeet.springapp.web;
 
 import java.io.IOException;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -17,7 +16,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.kpeet.springapp.service.LocationManager;
-import com.kpeet.springapp.service.ProductManager;
 
 @Controller
 public class InventoryController {
@@ -32,7 +30,7 @@ public class InventoryController {
 
 
 	        Map<String, Object> myModel = new HashMap<String, Object>();
-	        myModel.put("Location", this.locationManager.getLocations());
+	        myModel.put("location", this.locationManager.getLocations());
 
 	        return new ModelAndView("hello", "model", myModel);
 	    }
