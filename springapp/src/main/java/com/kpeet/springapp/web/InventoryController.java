@@ -16,6 +16,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.kpeet.springapp.service.LocationManager;
 import com.kpeet.springapp.service.ProductManager;
 
 @Controller
@@ -23,25 +24,22 @@ public class InventoryController {
 	 protected final Log logger = LogFactory.getLog(getClass());
 
 	    @Autowired
-	    private ProductManager productManager;
+	    private LocationManager locationManager;
 
 	    @RequestMapping(value="/hello.htm")
 	    public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response)
 	            throws ServletException, IOException {
 
-	    	String now = (new Date()).toString();
-	        logger.info("Returning hello view with " + now);
 
 	        Map<String, Object> myModel = new HashMap<String, Object>();
-	        myModel.put("now", now);
-	        myModel.put("products", this.productManager.getProducts());
+	        myModel.put("Location", this.locationManager.getLocations());
 
 	        return new ModelAndView("hello", "model", myModel);
 	    }
 
 
-	    public void setProductManager(ProductManager productManager) {
-	        this.productManager = productManager;
+	    public void setLocationManager(LocationManager locationManager) {
+	        this.locationManager = locationManager;
 	    }
 
 }

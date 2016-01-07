@@ -1,4 +1,4 @@
-package com.kpeet.Dao;
+package com.kpeet.springapp.dao;
 
 import java.util.List;
 
@@ -25,8 +25,8 @@ public class LocationDaoImpl implements LocationDao{
 
     @Transactional(readOnly = true)
     @SuppressWarnings("unchecked")
-    public List<Location> getProductList() {
-        return em.createQuery("select p from Product p order by p.id").getResultList();
+    public List<Location> getLocationList() {                     
+        return em.createQuery("select p from Location p ").getResultList(); //order by p.id       
     }
 
     @Transactional(readOnly = false)

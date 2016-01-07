@@ -1,4 +1,4 @@
-package com.kpeet.Dao;
+package com.kpeet.springapp.dao;
 
 import java.util.List;
 

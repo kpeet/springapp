@@ -21,6 +21,7 @@ public class Location implements Serializable{
     @Column(name = "location_id")
     @GeneratedValue(strategy = GenerationType.AUTO)
 	private int location_id;
+	
 	private String address;
 	private String street_number;
 	private String route;
@@ -29,7 +30,7 @@ public class Location implements Serializable{
 	private String country;
 	private double latitude;
 	private double longitude;
-	private int meterPerHour;
+	private int metersPerHour;
 	
 	
 	
@@ -87,11 +88,11 @@ public class Location implements Serializable{
 	public void setLongitude(double longitude) {
 		this.longitude = longitude;
 	}
-	public int getMeterPerHour() {
-		return meterPerHour;
+	public int getMetersPerHour() {
+		return metersPerHour;
 	}
-	public void setMeterPerHour(int meterPerHour) {
-		this.meterPerHour = meterPerHour;
+	public void setMetersPerHour(int meterPerHour) {
+		this.metersPerHour = meterPerHour;
 	}
     public String toString() {
         StringBuffer buffer = new StringBuffer();

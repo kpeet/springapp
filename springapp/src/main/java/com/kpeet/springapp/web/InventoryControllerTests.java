@@ -7,6 +7,7 @@ import java.util.Map;
 import org.junit.Test;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.kpeet.springapp.service.SimpleLocationManager;
 import com.kpeet.springapp.service.SimpleProductManager;
 
 public class InventoryControllerTests {
@@ -14,7 +15,7 @@ public class InventoryControllerTests {
 	 @Test
 	    public void testHandleRequestView() throws Exception{		
 	        InventoryController controller = new InventoryController();
-	        controller.setProductManager(new SimpleProductManager());
+	        controller.setLocationManager(new SimpleLocationManager());
 	        ModelAndView modelAndView = controller.handleRequest(null, null);		
 	        assertEquals("hello", modelAndView.getViewName());
 	        assertNotNull(modelAndView.getModel());

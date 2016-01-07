@@ -2,30 +2,32 @@ package com.kpeet.springapp.service;
 
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
 import com.kpeet.springapp.domain.Product;
 
+@Service
 public class SimpleProductManager implements ProductManager {
 
-	 private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 1L;
 
-	    private List<Product> products;
+	private List<Product> products;
 
-	    public List<Product> getProducts() {
-	        return products; 
-	    }
+	public List<Product> getProducts() {
+		return products;
+	}
 
-	    public void increasePrice(int percentage) {
-	    	if (products != null) {
-	            for (Product product : products) {
-	                double newPrice = product.getPrice().doubleValue() * 
-	                                    (100 + percentage)/100;
-	                product.setPrice(newPrice);
-	            }
-	        }  
-	    }
-		
-	    public void setProducts(List<Product> products) {
-	        this.products = products;
-	    }
+	public void increasePrice(int percentage) {
+		if (products != null) {
+			for (Product product : products) {
+				double newPrice = product.getPrice().doubleValue() * (100 + percentage) / 100;
+				product.setPrice(newPrice);
+			}
+		}
+	}
+
+	public void setProducts(List<Product> products) {
+		this.products = products;
+	}
 
 }
