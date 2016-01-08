@@ -54,7 +54,7 @@ public class InventoryController {
 		        DistanceMatrix results = DistanceMatrixApi.getDistanceMatrix(context, origin, destiny).await();
 		        System.out.println("viendo el result: ");
 		       
-		        System.out.println(results.rows[0]);
+		        System.out.println(results.rows[0].elements[0].distance.inMeters);
 		        myModel.put("MatrixDistanceResult", results);
 		      //  System.out.println(ToStringBuilder.reflectionToString(results, ToStringStyle.MULTI_LINE_STYLE));
 //		        System.out.println(results.);
