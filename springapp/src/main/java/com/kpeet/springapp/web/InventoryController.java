@@ -67,14 +67,16 @@ public class InventoryController {
 		        myModel.put("MatrixDistanceResult", result);
 		        System.out.println("-----con lat y log-------");
 		        
-		        String origins2[]={"lat: 55.930, lng: -3.118"};
-		        String destiny2[]={ "lat: 50.087, lng: 14"};
+		        String origins2[]={" 55.930, -3.118"};
+		        String destiny2[]={ "50.087, 14"};
 		        
 		        DistanceMatrix result2 = DistanceMatrixApi.getDistanceMatrix(context, origins2, destiny2).await();
 		        System.out.println("viendo el result: ");
 		        
 		        System.out.println(ToStringBuilder.reflectionToString(result2, ToStringStyle.MULTI_LINE_STYLE));
+		 
 		        System.out.println("------------");
+		        
 		        System.out.println(result2.rows[0].elements[0].distance.inMeters);
 		        
 		        
