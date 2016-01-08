@@ -1,7 +1,9 @@
 package com.kpeet.springapp.web;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.ServletException;
@@ -42,20 +44,40 @@ public class InventoryController {
 	        GeoApiContext context = new GeoApiContext().setApiKey("AIzaSyB-ZZHRgGvMLczqzDZnmFBds4Zs27wm1AY");
 	        
 	        try{
-	
+		      
 		        
+		        String origins[]={"San Francisco, Californie, États-Unis"};
+		        String destiny[]={ "Victoria, BC, Canada"};
 		        
-		        String origin[]={"Vancouver, BC, Canada", "Seattle, État de Washington, États-Unis"};
+		        GeocodingResult[] results =  GeocodingApi.geocode(context,
+		        	    "1600 Amphitheatre Parkway Mountain View, CA 94043").await();
+		        int i;
+		        System.out.println("Inicio ciclo for"+results.length);
+		        for(i=0; i< results.length ; i++){
+		        	System.out.println(results[i].addressComponents[0]);
+		        }
 		        
-		        String destiny[]={"San Francisco, Californie, États-Unis", "Victoria, BC, Canada"};
-		        
-		        
-		        
-		        DistanceMatrix results = DistanceMatrixApi.getDistanceMatrix(context, origin, destiny).await();
+		        DistanceMatrix result = DistanceMatrixApi.getDistanceMatrix(context, origins, destiny).await();
 		        System.out.println("viendo el result: ");
-		       
-		        System.out.println(results.rows[0].elements[0].distance.inMeters);
-		        myModel.put("MatrixDistanceResult", results);
+		        
+		        System.out.println(ToStringBuilder.reflectionToString(result, ToStringStyle.MULTI_LINE_STYLE));
+		        System.out.println("------------");
+		        
+		        System.out.println(result.rows[0].elements[0].distance.inMeters);
+		        myModel.put("MatrixDistanceResult", result);
+		        System.out.println("-----con lat y log-------");
+		        
+		        String origins2[]={"lat: 55.930, lng: -3.118"};
+		        String destiny2[]={ "lat: 50.087, lng: 14"};
+		        
+		        DistanceMatrix result2 = DistanceMatrixApi.getDistanceMatrix(context, origins2, destiny2).await();
+		        System.out.println("viendo el result: ");
+		        
+		        System.out.println(ToStringBuilder.reflectionToString(result2, ToStringStyle.MULTI_LINE_STYLE));
+		        System.out.println("------------");
+		        System.out.println(result2.rows[0].elements[0].distance.inMeters);
+		        
+		        
 		      //  System.out.println(ToStringBuilder.reflectionToString(results, ToStringStyle.MULTI_LINE_STYLE));
 //		        System.out.println(results.);
 	        
