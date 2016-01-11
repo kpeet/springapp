@@ -21,7 +21,7 @@ public class PriceIncreaseFormController {
 
     /** Logger for this class and subclasses */
     protected final Log logger = LogFactory.getLog(getClass());
-
+/*
     @Autowired
     private ProductManager productManager;
 
@@ -54,5 +54,6 @@ public class PriceIncreaseFormController {
     public ProductManager getProductManager() {
         return productManager;
     }
+    */
 
 }
