@@ -26,6 +26,7 @@ import com.google.maps.GeoApiContext;
 import com.google.maps.GeocodingApi;
 import com.google.maps.model.DistanceMatrix;
 import com.google.maps.model.GeocodingResult;
+import com.kpeet.springapp.service.DemoServiceBasicUsageFixedDelay;
 import com.kpeet.springapp.service.LocationManager;
 import com.kpeet.springapp.service.PriceIncrease;
 import com.kpeet.springapp.util.validation.LocationValidator;
@@ -36,17 +37,17 @@ public class CronController {
 	  /** Logger for this class and subclasses */
     protected final Log logger = LogFactory.getLog(getClass());
     
-    
 
     @Autowired
     private LocationManager locationManager;
 
     
-    @Scheduled(cron="*/5 * * * * MON-FRI")
+   
     public void doSomething() {
         // something that should execute on weekdays only
+    	 DemoServiceBasicUsageFixedDelay  test = new DemoServiceBasicUsageFixedDelay();
 
-        System.out.println("Haciendo algo cada cinco segundos. :: "+ new Date());
+        test.demoServiceMethod();
     }
     
     
