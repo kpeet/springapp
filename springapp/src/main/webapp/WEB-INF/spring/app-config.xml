@@ -13,7 +13,7 @@
         http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-3.0.xsd">
 
      <task:annotation-driven />
-    <bean id="demoServiceBasicUsageFixedDelay" class="com.kpeet.springapp.service.DemoServiceBasicUsageFixedDelay"></bean>
+    <bean id="demoServiceBasicUsageFixedDelay" class="com.kpeet.springapp.service.cron.DemoServiceBasicUsageFixedDelay"></bean>
 
        <bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
          <property name="basename" value="messages"/>

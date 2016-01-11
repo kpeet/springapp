@@ -26,9 +26,9 @@ import com.google.maps.GeoApiContext;
 import com.google.maps.GeocodingApi;
 import com.google.maps.model.DistanceMatrix;
 import com.google.maps.model.GeocodingResult;
-import com.kpeet.springapp.service.DemoServiceBasicUsageFixedDelay;
 import com.kpeet.springapp.service.LocationManager;
 import com.kpeet.springapp.service.PriceIncrease;
+import com.kpeet.springapp.service.cron.DemoServiceBasicUsageFixedDelay;
 import com.kpeet.springapp.util.validation.LocationValidator;
 
 

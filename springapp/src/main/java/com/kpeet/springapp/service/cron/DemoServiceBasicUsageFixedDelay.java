@@ -1,4 +1,4 @@
-package com.kpeet.springapp.service;
+package com.kpeet.springapp.service.cron;
 
 import java.util.Date;
 
