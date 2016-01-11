@@ -33,13 +33,33 @@ public class LocationController {
         if (result.hasErrors()) {
             return "priceincrease";
         }
+        
 		/*
         double lat = locationValidator.getPercentage();
         double lon = 
         logger.info("Increasing prices by " + increase + "%.");
     
 
-        locationManager.getValidateLocation(, lon);    */
+        locationManager.getValidateLocation(, lon);  
+        
+          *
+          *
+          *
+          *
+          * public String onSubmit(@Valid PriceIncrease priceIncrease, BindingResult result)
+    {
+        if (result.hasErrors()) {
+            return "priceincrease";
+        }
+		
+        /////--->>> int increase = priceIncrease.getPercentage();//OBTENGO EL VALOR DE INCREMENTO //servicio del objeto
+        logger.info("Increasing prices by " + increase + "%.");
+
+       //////---->>>> productManager.increasePrice(increase);//AQUI GUARDO // servicio de metodo
+
+        return "redirect:/hello.htm";
+    }
+    */
 
         return "redirect:/hello.htm";
     }
