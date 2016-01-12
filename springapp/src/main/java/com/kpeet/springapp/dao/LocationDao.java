@@ -8,7 +8,9 @@ public interface LocationDao {
 	
 	public List<Location> getLocationList();
 
-    public void saveProduct(Location prod);
+    public void saveLocation(Location loc);
+    
+    public void updateLocation(Location loc);
 
 
 }

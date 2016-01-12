@@ -30,9 +30,15 @@ public class LocationDaoImpl implements LocationDao{
     }
 
     @Transactional(readOnly = false)
-    public void saveProduct(Location loc) {
+    public void saveLocation(Location loc) {
         em.merge(loc);
     }
+
+    @Transactional(readOnly = false)
+	public void updateLocation(Location loc) {
+    	 em.persist(loc);
+		
+	}
 
 
 }

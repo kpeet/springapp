@@ -29,6 +29,25 @@ public class SimpleLocationManager implements LocationManager{
 	    public void setLocation(List<Location> locations) {
 	        this.locations = locations;
 	    }
+	    public void newLocation(String direccion) {
+	       // List<Location> locations = locationDao.getLocationList();
+	        Location location_2 = new Location();
+	        location_2.setAddress(direccion);
+       	 	locationDao.updateLocation(location_2);
+       	 	
+	        /*
+	        if (locations != null) {
+	            for (Location location : locations) {
+	            	
+	            	 
+	            	 location.setAddress("alojaaaaa");
+	            	 locationDao.saveLocation(location);
+					
+	               
+	            	
+	            }
+	        }*/
+	    }
 
 
 }
